@@ -20,7 +20,7 @@ def create_insert_statement():
     hashed_password = generate_password_hash(password)
 
     print("\n--- SQL Command Generated ---")
-    print("You will run this command in Render's PSQL console:\n")
+    print("Copy the following line and run it in your Clever Cloud database console:\n")
     print(f"INSERT INTO doctors (username, password) VALUES ('{username}', '{hashed_password}');")
     print("\n--------------------------")
 

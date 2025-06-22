@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
-import psycopg2
+import mysql.connector
 import os
 from datetime import datetime
 from functools import wraps
@@ -13,8 +13,12 @@ app.secret_key = 'your-secret-key-here'  # Required for flash messages and sessi
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 # Update these with your credentials
-db_url = os.environ.get("DATABASE_URL")
-db = psycopg2.connect(db_url)
+db = mysql.connector.connect(
+    host=os.environ.get("DB_HOST"),
+    user=os.environ.get("DB_USER"),
+    password=os.environ.get("DB_PASSWORD"),
+    database=os.environ.get("DB_NAME")
+)
 
 cursor = db.cursor()
 

@@ -2,13 +2,13 @@ CREATE DATABASE IF NOT EXISTS cattle_db;
 USE cattle_db;
 
 CREATE TABLE IF NOT EXISTS doctors (
-    id SERIAL PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(100) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS cattle_info (
-    id SERIAL PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     breed VARCHAR(100),
     color VARCHAR(50),
     age INT,
@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS cattle_info (
 );
 
 CREATE TABLE IF NOT EXISTS health_log (
-    id SERIAL PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     cattle_id INT,
     checkup_date DATE,
     diagnosis TEXT,
